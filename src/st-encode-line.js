@@ -11,5 +11,5 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function encodeLine(s) {
-  return (s.match(/(.)\1*/g)|| []).map(c => `${c.length}${c[0]}`).join('')
+  return (s.match(/(.)\1*/g)|| []).map(c => `${c.length === 1 ? '': c.length}${c[0]}`).join('')
 }
