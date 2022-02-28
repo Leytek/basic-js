@@ -33,4 +33,3 @@ function transform(a) {
 module.exports = {
   transform
 };
-z
