@@ -24,7 +24,10 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]
  */
 function minesweeper(m) {
-  return m.length == 2 ? [[0, 0, 0],[0, 0, 0]] : [[1, 2, 1],[2, 1, 1],[1, 1, 1]];
+  return m.map((c, i) => c.map((d, j) => [i > 0 ? [m[i - 1][j - 1], m[i - 1][j], m[i - 1][j + 1]] : 0,
+                                          m[i][j - 1], m[i][j + 1],
+                                          i < m.length - 1 ? [m[i + 1][j - 1], m[i + 1][j], m[i + 1][j + 1]] : 0].flat()
+          .reduce((a, c) => a + (c || 0), 0)));
 }
 
 module.exports = {
