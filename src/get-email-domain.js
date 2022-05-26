@@ -11,7 +11,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function getEmailDomain(s) {
-  return s.match(/(?<=@)[^@]+$/)[0];
+  return s.split`@`.slice(-1)[0];
 }
 
 module.exports = {
